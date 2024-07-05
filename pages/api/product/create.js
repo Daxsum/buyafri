@@ -53,6 +53,8 @@ export default async function apiHandler(req, res) {
           type,
           category,
           subcategory,
+          subsubcategory,
+          subsubsubcategory,
           brand,
           qty,
           trending,
@@ -70,6 +72,8 @@ export default async function apiHandler(req, res) {
         const random = "P" + customId({ randomLength: 4, upperCase: true });
         const categories = await JSON.parse(category);
         const subcategories = await JSON.parse(subcategory);
+        const subsubcategories = await JSON.parse(subsubcategory);
+        const subsubsubcategories = await JSON.parse(subsubsubcategory);
         const image = await JSON.parse(displayImage);
         const gallery = await JSON.parse(galleryImages);
         const colors = await JSON.parse(color);
@@ -97,6 +101,8 @@ export default async function apiHandler(req, res) {
             gallery,
             categories,
             subcategories,
+            subsubcategories,
+            subsubsubcategories,
             brand: brand.trim(),
             quantity: qty,
             trending: trending ? true : false,
@@ -121,6 +127,8 @@ export default async function apiHandler(req, res) {
             gallery,
             categories,
             subcategories,
+            subsubcategories,
+            subsubsubcategories,
             brand: brand.trim(),
             trending: trending ? true : false,
             new: new_product ? true : false,

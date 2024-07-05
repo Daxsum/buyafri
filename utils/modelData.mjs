@@ -85,14 +85,39 @@ export const attribute = {
   values: Array,
 };
 
+export const subsubsubCategory = {
+  subsubsubCategoryId: String,
+  name: String,
+  icon: Array,
+  slug: String,
+};
+
+export const subsubCategory = {
+  subsubCategoryId: String,
+  name: String,
+  icon: Array,
+  slug: String,
+  subsubsubCategories: [],
+};
+
+export const subCategory = {
+  subCategoryId: String,
+  name: String,
+  icon: Array,
+  slug: String,
+  subsubCategories: [subsubCategory],
+};
+
+
 export const category = {
   categoryId: String,
   name: String,
   icon: Array,
   slug: String,
-  subCategories: [],
+  subCategories: [subCategory],
   topCategory: { type: Boolean, default: false },
 };
+
 
 export const brand = {
   brandId: String,
@@ -159,6 +184,8 @@ export const product = {
   gallery: Array,
   categories: Array,
   subcategories: Array,
+  subsubcategories: Array,
+  subsubsubcategories: Array,
   brand: String,
   currency: String,
   trending: { type: Boolean, default: false },
