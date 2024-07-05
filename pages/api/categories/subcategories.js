@@ -1,4 +1,5 @@
 import sessionChecker from "~/lib/sessionPermission";
+import customId from "custom-id-new";
 import { convertToSlug } from "../../../middleware/functions";
 import categoryModel from "../../../models/category";
 import dbConnect from "../../../utils/dbConnect";
@@ -33,11 +34,14 @@ export default async function apiHandler(req, res) {
     case "POST":
       try {
         const data = await parseForm(req);
-        const objectData = {
+        const random = customId({ randomLength: 2, lowerCase: true });
+        const objectData = { 
+          subCategoryId: random,
+          icon: data.field.icon,
           name: data.field.name.trim(),
           slug: convertToSlug(data.field.name, false),
         };
-        await categoryModel.findByIdAndUpdate(data.field.category, {
+        await categoryModel.findByIdAndUpdate(data.field.categoryId, {
           $push: { subCategories: objectData },
         });
         res.status(200).json({ success: true });

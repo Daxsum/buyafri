@@ -7,10 +7,10 @@ import dbConnect from "../../../utils/dbConnect";
 
 export default async function apiHandler(req, res) {
   const { method } = req;
-  if (!(await sessionChecker(req, "category")))
-    return res
-      .status(403)
-      .json({ success: false, message: "Access Forbidden" });
+  // if (!(await sessionChecker(req, "category")))
+  //   return res
+  //     .status(403)
+  //     .json({ success: false, message: "Access Forbidden" });
 
   await dbConnect();
 
