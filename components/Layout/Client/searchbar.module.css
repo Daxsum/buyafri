@@ -10,6 +10,7 @@
   height: 50px;
   padding: 12px 23px;
   width: 100%;
+  border-radius: 30px;
 }
 
 .searchInput_def::placeholder {
@@ -31,6 +32,10 @@
   width: 62px;
   top: 0;
   cursor: pointer;
+  background-color: #286e64;
+  color: #f8b635;
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
 }
 
 .spinner_def {
